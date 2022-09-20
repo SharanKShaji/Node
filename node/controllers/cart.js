@@ -17,5 +17,34 @@ const cartController = async (req, res) => {
   };
   const cartResult = await models.cartFunction(cartData);
 };
+const incrCountController=async(req,res)=>{
+  const id=req.body.id;
+  const result=await models.incrCountFunction(id);
+  res.json({ success: true, result: result}).status(200);
+}
+const decrCountController=async(req,res)=>{
+  const id=req.body.id;
+  const result=await models.decrCountFunction(id);
+  res.json({ success: true, result: result}).status(200);
+}
 
-module.exports = { cartController };
+const rmvController=async(req,res)=>{
+  console.log(req.body,"bodyDelete");
+  const rmvID=req.body.removeId
+  const result=await models.removeFunction(rmvID)
+  if(result){
+  res.json({ success: true, result: result}).status(200);
+  }
+  else{
+      res.json({ success: false, result: result}).status(500);
+  }
+  }
+
+  const userCartController=async(req,res)=>{
+    const cart_id=req.body.cartid
+    const [result,total]=await models.userCartFunction(cart_id);
+    res.json({ success: true, result: result,total }).status(200);
+    
+  }
+
+module.exports = { cartController,incrCountController,decrCountController,rmvController,userCartController };

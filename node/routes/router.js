@@ -6,10 +6,10 @@ const{signUpController}=require("../controllers/auth")
 const{loginController}=require("../controllers/auth");
 const { shoppingCartcontroller } = require('../controllers/shoppingCart');
 const { cartController } = require('../controllers/cart');
-const { userCartController } = require('../controllers/userCart');
-const { incrCountController } = require('../controllers/incCount');
-const { decrCountController } = require('../controllers/decCount');
-const { rmvController } = require('../controllers/rmvController');
+const { userCartController } = require('../controllers/cart');
+const { incrCountController } = require('../controllers/cart');
+const { decrCountController } = require('../controllers/cart');
+const { rmvController } = require('../controllers/cart');
 
 router.post('/Signup',signUpController)
 router.post('/Login',loginController)
