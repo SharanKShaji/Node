@@ -66,7 +66,7 @@ const loginController=async(req,res)=>{
         const id=result[0].id;
         const cart_id=result[0].cart_id
         const token=jwt.sign({id},'jwtsecretkey',{expiresIn:'2hr'})
-        res.json({ success: true, message: 'Login successfull',user:loginData.username,token:token,id:id,cart_id:cart_id}).status(200);
+        res.json({ success: true, message: 'Login Successfull',user:loginData.username,token:token,id:id,cart_id:cart_id}).status(200);
         }  
         else{
         res.status(500).send({ success: false, message: 'Login error'})
