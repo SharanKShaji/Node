@@ -17,6 +17,8 @@ const cartController = async (req, res) => {
   };
   const cartResult = await models.cartFunction(cartData);
   res.json({ success: true, result: cartResult}).status(200);
+  console.log(cartResult,"RSLT");
+
 };
 const incrCountController=async(req,res)=>{
   const id=req.body.id;
