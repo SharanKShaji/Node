@@ -10,6 +10,7 @@ const { userCartController } = require('../controllers/cart');
 const { incrCountController } = require('../controllers/cart');
 const { decrCountController } = require('../controllers/cart');
 const { rmvController } = require('../controllers/cart');
+const { admUserController, admProductController, admaddProductController, admDltPrdtController, admEditController, admEditDataController } = require('../controllers/admin');
 
 router.post('/Signup',signUpController)
 router.post('/Login',loginController)
@@ -19,5 +20,11 @@ router.post('/userCart',verifyJWT,userCartController)
 router.post('/incrCount',incrCountController)
 router.post('/decrCount',decrCountController)
 router.post('/remove',rmvController)
+router.get('/userData',admUserController)
+router.get('/productData',admProductController)
+router.post('/Addproduct',admaddProductController)
+router.post('/Deleteproduct',admDltPrdtController)
+router.post('/showProduct',admEditController)
+router.put('/editData',admEditDataController)
 
 module.exports = router;
