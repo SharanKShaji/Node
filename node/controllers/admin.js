@@ -9,7 +9,7 @@ const admUserController = async (req, res) => {
     res.json({ success: true, result: result }).status(200);
     return true;
   } catch (error) {
-    console.log(error);
+    console.log(error,"kkkk");
     return false;
   }
 };
@@ -27,6 +27,7 @@ const admProductController = async (req, res) => {
 };
 
 const admaddProductController = async (req, res) => {
+  console.log(req.body,"CHECK****");
   try {
     const addData = {
       category: req.body.category,
@@ -38,13 +39,14 @@ const admaddProductController = async (req, res) => {
       stock: req.body.stock,
       status: req.body.status,
     };
+    console.log(addData,"CONTRO");
     const result = await models.admAddProductfunction(addData);
     console.log(result,"ERR");
     res.json({ success: true, result: result }).status(200);
     return true;
   } catch (error) {
     console.log(error);
-    res.json({ success: false, result: result }).status(500);
+    res.json({ success: false, result: error }).status(500);
     return false;
   }
 };

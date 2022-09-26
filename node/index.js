@@ -2,8 +2,13 @@ const express=require("express");
 const app=express();
 app.use(express.json());
 
-const cors = require('cors');
-app.use(cors());
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 const router=require("./routes/router")
 app.use('/',router)
