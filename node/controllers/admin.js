@@ -58,6 +58,7 @@ const admDltPrdtController = async (req, res) => {
     res.json({ success: true, result: result }).status(200);
   } catch (error) {
     console.log(error);
+    res.json({ success: false, result: error }).status(500);
     return false;
   }
 };
