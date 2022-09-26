@@ -15,7 +15,7 @@ const admUserController = async (req, res) => {
 };
 
 const admProductController = async (req, res) => {
-  console.log(req,"KKKKKKK");
+  console.log(req,"Product Controller Data");
   try {
     const result = await models.admProductfunction();
     res.json({ success: true, result: result }).status(200);
