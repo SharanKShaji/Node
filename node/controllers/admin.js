@@ -14,6 +14,19 @@ const admUserController = async (req, res) => {
   }
 };
 
+const admUserDetailsController = async (req, res) => {
+  const id=req.body.id
+  try {
+    const result = await models.admUserDetailsfunction(id);
+    res.json({ success: true, result: result }).status(200);
+    return true;
+  } catch (error) {
+    console.log(error,"kkkk");
+    return false;
+  }
+};
+
+
 const admProductController = async (req, res) => {
   console.log(req,"KKKKKKK");
   try {
@@ -58,6 +71,7 @@ const admDltPrdtController = async (req, res) => {
     res.json({ success: true, result: result }).status(200);
   } catch (error) {
     console.log(error);
+    res.json({ success: false, result: error }).status(500);
     return false;
   }
 };
@@ -100,5 +114,6 @@ module.exports = {
   admaddProductController,
   admDltPrdtController,
   admEditController,
-  admEditDataController
+  admEditDataController,
+  admUserDetailsController
 };

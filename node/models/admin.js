@@ -3,7 +3,22 @@ const {dbConnection}=require("../library/database")
 const admUserfunction=async()=>{
     const db = dbConnection();
     try{
-        let result = await db.query('SELECT * FROM users');
+        let result = await db.query("SELECT id,username,cart_id FROM users where cart_id !=''");
+        return result;
+        
+    }
+    catch(error){
+        return error;
+    }
+    finally{
+        await db.close();
+    }
+}
+
+const admUserDetailsfunction=async(id)=>{
+    const db = dbConnection();
+    try{
+        let result = await db.query('SELECT * from users where id=?',[id]);
         return result;
         
     }
@@ -94,4 +109,4 @@ const admEditDataFunction=async(EditData)=>{
 
 
 
-module.exports={admUserfunction,admProductfunction,admAddProductfunction,admDltPrdtFunction,admEditFunction,admEditDataFunction}
+module.exports={admUserfunction,admProductfunction,admAddProductfunction,admDltPrdtFunction,admEditFunction,admEditDataFunction,admUserDetailsfunction}

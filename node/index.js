@@ -14,6 +14,6 @@ const router=require("./routes/router")
 app.use('/',router)
 
 app.listen(9000,(req,res)=>{
-  console.log('Running');
+  console.log('Server Running');
 })
 
