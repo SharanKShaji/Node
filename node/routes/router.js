@@ -15,10 +15,10 @@ const { admUserController, admProductController, admaddProductController, admDlt
 const multer =require('multer')
 const storage=multer.diskStorage({
     destination:function(req,file,cb){
-        cb(null,'')
+        cb(null,'Uploads/Images')
     },
     filename:function(req,file,cb){
-        req.body.image=Date.now()+file.originalname
+        req.body.UPLimage=Date.now()+file.originalname
         cb(null,req.body.image)
     }
 })

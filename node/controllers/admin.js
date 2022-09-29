@@ -46,7 +46,7 @@ const admaddProductController = async (req, res) => {
       category: req.body.category,
       supplier: req.body.supplier,
       name: req.body.name,
-      image: req.body.image,
+      image: req.body.UPLimage,
       price: req.body.price,
       description: req.body.description,
       stock: req.body.stock,
