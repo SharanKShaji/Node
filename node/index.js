@@ -12,8 +12,9 @@ app.use(function(req, res, next) {
 
 const router=require("./routes/router")
 app.use('/',router)
+app.use('/',express.static('Uploads/Images'))
 
 app.listen(9000,(req,res)=>{
-  console.log('Server Running');
+  console.log('Server Running',req);
 })
 
